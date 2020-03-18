@@ -15,7 +15,7 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   background-color: #fff;
   //background-color: #fff;
-  border-top: 10px solid $primary-color;
+  // border-top: 10px solid $primary-color;
 }
 a {
   color: $primary-color;
@@ -208,6 +208,25 @@ a {
 .post-meta {
   font-size: 0.8rem;
   color: #666;
+}
+.button-tags:hover {
+  background-color: #e9e6e6;
+}
+.button-tags {
+  margin-right: 10px;
+  font-size: 15px;
+  border: 1px solid #e0e0e0;
+  padding: 3px 15px;
+  outline: none;
+  cursor: pointer;
+}
+.button-tags.select {
+  background-color: #e0e0e0;
+}
+.post-tags {
+  font-size: 0.8rem;
+  color: $primary-color;
+  margin-right: 5px;
 }
 .site-footer {
   text-align: center;

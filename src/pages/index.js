@@ -1,38 +1,68 @@
-import React from "react"
+import React, { useState } from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby'
-import Layout from "../components/layout"
-import PostLink from "../components/post-link"
-import HeroHeader from "../components/heroHeader"
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import PostLink from '../components/post-link';
+import HeroHeader from '../components/heroHeader';
 
 const IndexPage = ({
   data: {
     site,
-    allMarkdownRemark: { edges },
-  },
+    allMarkdownRemark: { edges, group }
+  }
 }) => {
+  const [tag, setTag] = useState('');
+  const click = props => {
+    setTag(props);
+    console.log(props);
+  };
 
   const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    .filter(edge =>
+      !!tag
+        ? !!edge.node.frontmatter.tags &&
+          edge.node.frontmatter.tags.find(e => e === tag)
+        : !!edge.node.frontmatter.date
+    ) // You can filter your posts based on some criteria
+    .map(edge => <PostLink key={edge.node.id} post={edge.node} />);
 
   return (
     <Layout>
       <Helmet>
         <title>{site.siteMetadata.title}</title>
-        <meta name="description" content={site.siteMetadata.description} />
-        {!site.siteMetadata.w3l_dom_key ? null : <meta name="w3l-domain-verification" content={site.siteMetadata.w3l_dom_key} />}
+        <meta name='description' content={site.siteMetadata.description} />
+        {!site.siteMetadata.w3l_dom_key ? null : (
+          <meta
+            name='w3l-domain-verification'
+            content={site.siteMetadata.w3l_dom_key}
+          />
+        )}
       </Helmet>
-      <HeroHeader/>
-      <h2>Blog Posts &darr;</h2>
-      <div className="grids">
-        {Posts}
-      </div>
-    </Layout>
-  )
-}
+      <HeroHeader />
+      <h2>Category &darr;</h2>
 
-export default IndexPage
+      <button
+        className={tag === '' ? 'button-tags select' : 'button-tags'}
+        onClick={() => click('')}
+      >
+        all
+      </button>
+      {group.map((item, idx) => (
+        <button
+          className={tag === item.tag ? 'button-tags select' : 'button-tags'}
+          key={idx}
+          onClick={() => click(item.tag)}
+        >
+          {item.tag}
+        </button>
+      ))}
+
+      <div className='grids'>{Posts}</div>
+    </Layout>
+  );
+};
+
+export default IndexPage;
 export const pageQuery = graphql`
   query indexPageQuery {
     site {
@@ -52,9 +82,14 @@ export const pageQuery = graphql`
             path
             title
             thumbnail
+            tags
           }
         }
       }
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
+      }
     }
   }
-`
+`;
