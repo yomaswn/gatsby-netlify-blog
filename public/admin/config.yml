@@ -14,6 +14,11 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { label: Publish, name: publish, widget: boolean, default: true }
+      - label: Tags
+        name: tags
+        widget: list
+        default: ['web']
       - label: Featured Image
         name: thumbnail
         widget: image
