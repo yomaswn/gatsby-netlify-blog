@@ -11,7 +11,10 @@ collections:
     create: true
     fields:
       - { label: Template, name: template, widget: hidden, default: BlogPost }
-      - { name: path, label: Path }
+      - label: Path
+        name: path
+        widget: string
+        default: /path-name
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { label: Publish, name: publish, widget: boolean, default: true }
