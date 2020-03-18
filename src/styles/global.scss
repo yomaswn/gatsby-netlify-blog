@@ -231,7 +231,9 @@ a {
   cursor: pointer;
 }
 .button-tags.select {
-  background-color: #e0e0e0;
+  background-color: $primary-color;
+  color: white;
+  border: 1px solid $primary-color;
 }
 .post-tags {
   font-size: 0.8rem;
