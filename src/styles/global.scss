@@ -182,7 +182,9 @@ a {
   margin-top: 32px;
 }
 .card {
-  display: grid;
+  // display: grid;
+  display: flex;
+  flex-flow: column;
   background: white;
   border-radius: 9px;
   border: 1px solid #eee;
@@ -191,6 +193,10 @@ a {
   line-height: 1.5;
   &:hover .post-link {
     color: $primary-color;
+  }
+  > a {
+    height: 200px;
+    overflow: hidden;
   }
   > a img {
     display: block;
