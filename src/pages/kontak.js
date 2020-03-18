@@ -10,7 +10,9 @@ const KontakPage = ({ data: { site } }) => {
         <title>Contact — {site.siteMetadata.title}</title>
         <meta name='description' content={site.siteMetadata.description} />
       </Helmet>
-      <h1 style={{ textAlign: 'center' }}>Under Construction</h1>
+      <div className='under'>
+        <img src='/assets/undercon.png' alt='undercon' />
+      </div>
     </Layout>
   );
 };

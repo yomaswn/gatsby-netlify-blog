@@ -241,6 +241,15 @@ a {
   color: white;
   border: 1px solid $primary-color;
 }
+.under {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px 0;
+}
+.under img {
+  width: 300px;
+}
 .post-tags {
   font-size: 0.8rem;
   color: $primary-color;
