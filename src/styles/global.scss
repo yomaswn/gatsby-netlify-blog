@@ -69,11 +69,18 @@ a {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 50px 10% 80px;
 }
-.headline {
+.headline a:hover {
+  color: $primary-color;
+}
+.headline a {
   font-size: 36px;
   font-weight: 900;
   margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: black;
 }
 .button {
   padding: 18px 27px;
@@ -104,9 +111,11 @@ a {
 }
 .primary-content {
   font-size: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 35px;
   line-height: 1.5;
   font-weight: 300;
+  text-decoration: none;
+  color: grey;
 }
 .post {
   padding: 0;
@@ -214,6 +223,7 @@ a {
 }
 .button-tags {
   margin-right: 10px;
+  margin-bottom: 10px;
   font-size: 15px;
   border: 1px solid #e0e0e0;
   padding: 3px 15px;

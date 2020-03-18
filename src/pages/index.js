@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import PostLink from '../components/post-link';
-import HeroHeader from '../components/heroHeader';
 
 const IndexPage = ({
   data: {
@@ -14,7 +13,6 @@ const IndexPage = ({
   const [tag, setTag] = useState('');
   const click = props => {
     setTag(props);
-    console.log(props);
   };
 
   const Posts = edges
@@ -38,8 +36,7 @@ const IndexPage = ({
           />
         )}
       </Helmet>
-      <HeroHeader />
-      <h2>Category &darr;</h2>
+      <h2>Category</h2>
 
       <button
         className={tag === '' ? 'button-tags select' : 'button-tags'}

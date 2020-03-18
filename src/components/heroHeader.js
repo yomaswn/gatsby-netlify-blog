@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
 export default () => (
   <StaticQuery
     query={graphql`
@@ -16,10 +16,13 @@ export default () => (
     `}
     render={data => (
       <div className='hero-header'>
-        <div className='headline'>{data.site.siteMetadata.home.title}</div>
-        <div className='primary-content'>
-          <p>{data.site.siteMetadata.home.description}</p>
+        <div className='headline'>
+          <Link to='/'>{data.site.siteMetadata.home.title}</Link>
+          {/* {data.site.siteMetadata.home.title} */}
         </div>
+        <Link className='primary-content' to='/'>
+          {data.site.siteMetadata.home.description}
+        </Link>
         {/* <Link to='/contact' className="button -primary">Get in touch &rarr;</Link> */}
       </div>
     )}
