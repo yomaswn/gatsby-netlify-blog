@@ -11,7 +11,6 @@ const KontakPage = ({ data: { site } }) => {
         <meta name='description' content={site.siteMetadata.description} />
       </Helmet>
       <h1 style={{ textAlign: 'center' }}>Under Construction</h1>
-      <img src='../../static/assets/undercon.png' alt='' />
     </Layout>
   );
 };

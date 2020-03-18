@@ -69,7 +69,10 @@ export const pageQuery = graphql`
         w3l_dom_key
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { publish: { eq: true } } }
+    ) {
       edges {
         node {
           id
@@ -80,6 +83,7 @@ export const pageQuery = graphql`
             title
             thumbnail
             tags
+            publish
           }
         }
       }
