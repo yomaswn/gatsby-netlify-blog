@@ -6,6 +6,7 @@ title: Menghubungkan lokal project ke GitHub
 publish: true
 tags:
   - github
+thumbnail: /assets/local-github.JPG
 ---
 #### Memulai project
 
