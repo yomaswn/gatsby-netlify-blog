@@ -3,7 +3,7 @@ template: BlogPost
 path: /lorem-ipsum
 date: 2020-03-18T15:37:10.975Z
 title: Lorem kali ini
-publish: true
+publish: false
 tags:
   - tech
   - nano
